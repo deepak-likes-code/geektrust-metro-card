@@ -3,21 +3,18 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.outputParser = exports.processLine = void 0;
 const enums_1 = require("../enums/enums");
 const db_1 = require("./db");
-const main_1 = require("./main");
+const functions_1 = require("./functions");
 const processLine = (line) => {
     if (line.startsWith(enums_1.InputType.BALANCE)) {
         const balance = line.split(' ');
         db_1.balances.set(balance[1], parseInt(balance[2]));
-        console.log(`Setting balance of ${balance[1]} to ${balance[2]}`);
     }
     else if (line.startsWith(enums_1.InputType.CHECK_IN)) {
         const checkIn = line.split(' ');
-        (0, main_1.updateCheckInDB)(checkIn);
-        console.log(`Checking in user of type ${checkIn[1]} at ${checkIn[3]} of type  ${checkIn[2]}`);
+        (0, functions_1.updateCheckInDB)(checkIn);
     }
     else if (line === enums_1.InputType.PRINT_SUMMARY) {
-        console.log("Checkin data", db_1.checkInDBList);
-        console.log("Printing summary...", (0, main_1.calculateFare)());
+        (0, functions_1.calculateFare)();
     }
 };
 exports.processLine = processLine;

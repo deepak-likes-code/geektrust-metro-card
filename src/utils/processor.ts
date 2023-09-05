@@ -1,22 +1,19 @@
 import fs from "fs";
 import { InputType } from "../enums/enums";
 import { balances, checkInDBList } from "./db";
-import { updateCheckInDB, calculateFare } from "./main";
-import { collectedFareInterface } from "./main";
+import { updateCheckInDB, calculateFare } from "./functions";
+import { collectedFareInterface } from "./interface";
 
 
 export const processLine = (line: string) => {
     if (line.startsWith(InputType.BALANCE)) {
         const balance = line.split(' ');
         balances.set(balance[1], parseInt(balance[2]));
-        console.log(`Setting balance of ${balance[1]} to ${balance[2]}`);
     } else if (line.startsWith(InputType.CHECK_IN)) {
         const checkIn = line.split(' ');
         updateCheckInDB(checkIn)
-        console.log(`Checking in user of type ${checkIn[1]} at ${checkIn[3]} of type  ${checkIn[2]}`);
     } else if (line === InputType.PRINT_SUMMARY) {
-        console.log("Checkin data", checkInDBList);
-        console.log("Printing summary...", calculateFare());
+        calculateFare();
 
     }
 }

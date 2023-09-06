@@ -5,10 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon --watch 'src/**/*' -e ts,js --exec \"tsc && node ./dist/geektrust.js sample_input/input2.txt\"",
-    "build": "tsc -p .",
     "start": "node dist/geektrust.js sample_input/input1.txt",
-    "test": "jest",
-    "postinstall": "npm run build"
+    "test": "jest"
   },
   "author": "geektrust",
   "license": "ISC",

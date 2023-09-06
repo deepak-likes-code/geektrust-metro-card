@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.outputParser = exports.processLine = void 0;
-const enums_1 = require("../enums/enums");
+const enums_1 = require("../types/enums");
 const db_1 = require("./db");
 const functions_1 = require("./functions");
 const processLine = (line) => {

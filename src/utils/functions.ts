@@ -1,5 +1,5 @@
 import { checkInDBList, balances } from "./db";
-import { collectedFareInterface } from "./interface";
+import { collectedFareInterface } from "../types/interface";
 import { outputParser } from "./processor";
 
 export const updateCheckInDB = ((checkIn: string[]) => {

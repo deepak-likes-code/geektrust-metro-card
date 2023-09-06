@@ -1,8 +1,8 @@
 import fs from "fs";
-import { InputType } from "../enums/enums";
+import { InputType } from "../types/enums";
 import { balances, checkInDBList } from "./db";
 import { updateCheckInDB, calculateFare } from "./functions";
-import { collectedFareInterface } from "./interface";
+import { collectedFareInterface } from "../types/interface";
 
 
 export const processLine = (line: string) => {

@@ -1,4 +1,4 @@
-import fs from "fs";
+
 import { InputType } from "../types/enums";
 import { balances, checkInDBList } from "./db";
 import { updateCheckInDB, calculateFare } from "./functions";
